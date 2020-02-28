@@ -5,3 +5,4 @@ slprj/
 *.gz
 *.log
 *.slxc
+exclude/

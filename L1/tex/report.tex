@@ -1,0 +1,180 @@
+\include{preambula}
+
+\begin{document}
+	\include{title_page}
+	\section{Цель работы}
+		\begin{enumerate}
+			\item Исследовать характеристики системы настроенной на линейный, технический, симметричный, биномиальный оптимумы и астатизм третьего порядка.
+			\item Исследовать реакцию системы на константное, линейное и квадратичное воздействие при разных оптимумах.
+            \item Определить порядок астатизма системы настроенной на разные оптимумыю.
+		\end{enumerate}
+	\section{Дано}
+		Для всех оптимумов заданы параметры $T_1=0.1, T_2=T_{\mu}=0.005, K_{\text{об}}=10$
+		
+		Входные воздействия:
+		\begin{align*}
+			  y &= A\\
+			  y &= vt\\
+			  y &= \frac{at^2}{2}\mbox{, где } A = 7, v=5, a=10
+		\end{align*}
+	\section{Выполнение работы}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{sim_model}
+			\caption{Модель simulink}
+		\end{figure}
+		\subsection{Линейный оптимум}
+			\subsubsection{Переходная функция}
+				\begin{figure}[H]
+					\centering
+					\includegraphics{linear_opt-step_response}
+					\caption{Реакция на единичное воздействие}
+				\end{figure}
+				Время переходного процесса $t_{\text{пп}}=3T_{\mu}=0.015\,c$ и перерегулирование $\Delta h=0\%$
+			\subsubsection{Диаграммы Боде}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{linear_opt-bode-raz}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{linear_opt-bode-zam}}
+					\caption{Диаграммы Боде линейного оптимума}
+				\end{figure}
+			\subsubsection{Реакции на входное воздействие}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{linear_opt-const}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{linear_opt-lin}}\\
+					\centering\subfloat{\includegraphics[width=0.5\textwidth]{linear_opt-quad}}
+					\caption{Реакция на различные воздействия}
+				\end{figure}
+		\subsection{Технический оптимум}
+			\subsubsection{Переходная функция}
+				\begin{figure}[H]
+					\centering
+					\includegraphics{technical-step_response}
+					\caption{Реакция на единичное воздействие}
+				\end{figure}
+				Время переходного процесса $t_{\text{пп}}=4.1T_{\mu}=0.021\,c$ и перерегулирование $\Delta h=4.3\%$
+			\subsubsection{Диаграммы Боде}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{technical-bode-raz}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{technical-bode-zam}}
+					\caption{Диаграммы Боде технического оптимума}
+				\end{figure}
+			\subsubsection{Реакции на входное воздействие}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{technical-const}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{technical-lin}}\\
+					\centering\subfloat{\includegraphics[width=0.5\textwidth]{technical-quad}}
+					\caption{Реакция на различные воздействия}
+				\end{figure}
+		\subsection{Симметричный оптимум}
+			\subsubsection{Переходная функция}
+				\begin{figure}[H]
+					\centering
+					\includegraphics{symmetrical-step_response}
+					\caption{Реакция на единичное воздействие}
+				\end{figure}
+				Время переходного процесса $t_{\text{пп}}=14.7T_{\mu}=0.073\,c$ и перерегулирование $\Delta h=43.39\%$
+			\subsubsection{Диаграммы Боде}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{symmetrical-bode-raz}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{symmetrical-bode-zam}}
+					\caption{Диаграммы Боде технического оптимума}
+				\end{figure}
+			\subsubsection{Реакции на входное воздействие}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{symmetrical-const}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{symmetrical-lin}}\\
+					\centering\subfloat{\includegraphics[width=0.5\textwidth]{symmetrical-quad}}
+					\caption{Реакция на различные воздействия}
+				\end{figure}
+		\subsection{Биномиальный оптимум}
+			\subsubsection{Переходная функция}
+				\begin{figure}[H]
+					\centering
+					\includegraphics{binomial-step_response}
+					\caption{Реакция на единичное воздействие}
+				\end{figure}
+				Время переходного процесса $t_{\text{пп}}=6.6T_{\mu}=0.033\,c$ и перерегулирование $\Delta h=0.43\%$
+			\subsubsection{Диаграммы Боде}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{binomial-bode-raz}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{binomial-bode-zam}}
+					\caption{Диаграммы Боде биномиального оптимума}
+				\end{figure}
+			\subsubsection{Реакции на входное воздействие}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{binomial-const}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{binomial-lin}}\\
+					\centering\subfloat{\includegraphics[width=0.5\textwidth]{binomial-quad}}
+					\caption{Реакция на различные воздействия}
+				\end{figure}
+		\subsection{Астатизм третьего порядка}
+			\subsubsection{Переходная функция}
+				\begin{figure}[H]
+					\centering
+					\includegraphics{astatism-step_response}
+					\caption{Реакция на единичное воздействие}
+				\end{figure}
+				Время переходного процесса $t_{\text{пп}}=14.7T_{\mu}=0.073\,c$ и перерегулирование $\Delta h=56.13\%$
+			\subsubsection{Диаграммы Боде}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{astatism-bode-raz}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{astatism-bode-zam}}
+					\caption{Диаграммы Боде астатизма третьего порядка}
+				\end{figure}
+			\subsubsection{Реакции на входное воздействие}
+				\begin{figure}[H]
+					\centering
+					\subfloat{\includegraphics[width=0.5\textwidth]{astatism-const}}
+					\subfloat{\includegraphics[width=0.5\textwidth]{astatism-lin}}\\
+					\centering\subfloat{\includegraphics[width=0.5\textwidth]{astatism-quad}}
+					\caption{Реакция на различные воздействия}
+				\end{figure}
+		\subsection{Сравнение характеристик оптимумов}
+			В ходе работы получены следующие величины времени переходного процесса $t_{\text{пп}}$ и перерегулирования $\Delta h$.
+			\begin{center}
+				\begin{tabular}{|c|c|c|c|c|c|}
+					\hline
+					& Линейный & Технический & Симметричный & Биномиальный & Астатизм \\
+					\hline
+					$t_{\text{пп}}$ & $3T_{\mu}=0.015\,c$ & $4.1T_{\mu}=0.021\,c$ & $14.7T_{\mu}=0.073\,c$ & $6.6T_{\mu}=0.033\,c$ & $16.35T_{\mu}=0.082\,c$ \\
+					\hline
+					$\Delta h$ & 0\% & 4.3\% & 43.39\% & 0.43\% & 56.13\% \\
+					\hline
+				\end{tabular}	
+			\end{center}
+		\subsection{Порядок астатизма оптимумов}
+            Для определения порядка астатизма приведем графики ошибок систем при постоянном воздействии.
+            \begin{center}
+                \begin{figure}[H]
+                    \includegraphics[width=\linewidth, trim={1cm 1cm 1cm 0.5cm}, clip]{compare-errors}
+                    \caption{Сравнение ошибок систем при разных воздействиях}
+                \end{figure}
+            \end{center}
+            
+            Если ошибка по окончанию переходных процессов для воздействия $n\mbox{-го}$ порядка равна нулю, то система имеет астатизм как минимумм $(n+1)\mbox{-го}$ порядка. Если ошибка имеет постоянное ненулевое значение, тогда система имеет астатизм $n\mbox{-го}$ порядка.
+            
+            Таким образом на основании полученных данных:
+            \begin{center}
+                \begin{tabular}{|c|c|c|c|c|c|}
+                    \hline
+                    & Линейный & Технический & Симметричный & Биномиальный & Астатизм \\
+                    \hline
+                    Порядок астатизма & 1 & 1 & 2 & 1 & $\ge 3$ \\
+                    \hline
+                \end{tabular}	
+            \end{center}
+        
+    \section{Вывод}
+        В ходе моделирования систем были эксперементально получены значения перерегулирования и времени переходных процессов для данных оптимумов. Получены ЛАЧХ и ФЧХ для систем различной настройки, а также определён порядок астатизма, получающийся в результате настройки системы.
+        
+        Очевидно, что при увеличении порядка астатизма реакция системы становится более <<колебательной>> --- растёт перерегулирование и время переходного процесса. При этом системы с б\'{о}льшим порядком астатизма отрабатывают воздействия с установившейся ошибкой, чем системы с меньшим порядком.
+\end{document}

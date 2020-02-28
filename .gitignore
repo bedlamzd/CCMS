@@ -1,0 +1,7 @@
+*.png
+*.pdf
+slprj/
+*.aux
+*.gz
+*.log
+*.slxc

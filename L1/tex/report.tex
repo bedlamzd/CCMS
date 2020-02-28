@@ -23,8 +23,10 @@
 			\includegraphics[width=\textwidth]{sim_model}
 			\caption{Модель simulink}
 		\end{figure}
+		\newpage
 		\subsection{Линейный оптимум}
 			\subsubsection{Переходная функция}
+				$$W(s)=\frac{1}{Ts+1}$$
 				\begin{figure}[H]
 					\centering
 					\includegraphics{linear_opt-step_response}
@@ -48,6 +50,7 @@
 				\end{figure}
 		\subsection{Технический оптимум}
 			\subsubsection{Переходная функция}
+				$$W(s)=\frac{1}{2T_\mu^2 s^2+2T_\mu s+1}$$
 				\begin{figure}[H]
 					\centering
 					\includegraphics{technical-step_response}
@@ -71,6 +74,7 @@
 				\end{figure}
 		\subsection{Симметричный оптимум}
 			\subsubsection{Переходная функция}
+				$$W(s)=\frac{4T_\mu s+1}{8T_\mu^3 s^3+8T_\mu^2 s^2+4T_\mu s+1}$$
 				\begin{figure}[H]
 					\centering
 					\includegraphics{symmetrical-step_response}
@@ -94,6 +98,7 @@
 				\end{figure}
 		\subsection{Биномиальный оптимум}
 			\subsubsection{Переходная функция}
+				$$W(s)=\frac{1}{3T_\mu^2 s^2+3T_\mu s+1}$$
 				\begin{figure}[H]
 					\centering
 					\includegraphics{binomial-step_response}
@@ -117,11 +122,12 @@
 				\end{figure}
 		\subsection{Астатизм третьего порядка}
 			\subsubsection{Переходная функция}
+				$$W(s)=\frac{(16T_\mu s+1)(4T_\mu s+1)}{128T_\mu^4 s^4+128T_\mu^3s^3+64T_\mu^2 s^2+20T_\mu s+1}$$    
 				\begin{figure}[H]
 					\centering
 					\includegraphics{astatism-step_response}
 					\caption{Реакция на единичное воздействие}
-				\end{figure}
+				\end{figure} 
 				Время переходного процесса $t_{\text{пп}}=14.7T_{\mu}=0.073\,c$ и перерегулирование $\Delta h=56.13\%$
 			\subsubsection{Диаграммы Боде}
 				\begin{figure}[H]

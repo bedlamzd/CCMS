@@ -15,6 +15,10 @@ close all
 
 img_path = 'img\'; % путь куда сохранять картинки
 
+if ~exist(img_path, 'dir')
+    mkdir(img_path)
+end
+
 %% Файлы с данными
 optimums = ["linear_opt", "technical", "symmetrical", "binomial", "astatism"];
 ModelName = 'sim_model';

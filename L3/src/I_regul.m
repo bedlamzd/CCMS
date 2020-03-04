@@ -1,29 +1,26 @@
 %{
-Исследование цифровых САУ с И-регулятором
+    Лабораторная №3
+    Исследование цифровых САУ с И-регулятором
 %}
+
+clear
+clc
+close all
 
 %% метод прямоугольников
 T0 = 0.1;
 Kia = 1;
 Ki = Kia*T0;
-sim integrmodel
 
-t = y(:, 1);
-sig = y(:,2);
-dig = y(:,3);
-anlg = y(:,4);
-dig_er = y(:,5);
+sim rectangle_method
 
 figure
-
-plot(t,sig)
-hold on
+plot(out.time,[out.signals.values]);
 grid on
-plot(t,dig)
-plot(t,anlg)
-plot(t, dig_er)
-plot(t, sig-anlg)
-legend('сигнал','цифра','аналог','ошибка-цифра','ошибка-аналог')
+legend('Метод прямоугольников',...
+       'Интегратор',...
+       'Метод трапеций',...
+       'Location', 'best')
 
 %% 2 Метод переоборудования
 K1 = 3 + .1*(2*rand()-1);
@@ -36,24 +33,10 @@ Tu = T1;
 T0 = 0.01;
 Kia = 1/(2*Tu*K1);
 Ki = Kia*T0;
+
 sim i_isled
 
-t = y(:, 1);
-sig = y(:,2);
-dig = y(:,3);
-anlg = y(:,4);
-dig_er = y(:,5);
-
-figure
-
-plot(t,sig)
-hold on
-grid on
-plot(t,dig)
-plot(t,anlg)
-plot(t, dig_er)
-plot(t, sig-anlg)
-legend('сигнал','цифра','аналог','ошибка-цифра','ошибка-аналог')
+pltout(out)
 
 %% 4 T0 == T1
 t_final = 2;
@@ -61,24 +44,10 @@ Tu = T1;
 T0 = T1;
 Kia = 1/(2*Tu*K1);
 Ki = Kia*T0;
+
 sim i_isled
 
-t = y(:, 1);
-sig = y(:,2);
-dig = y(:,3);
-anlg = y(:,4);
-dig_er = y(:,5);
-
-figure
-
-plot(t,sig)
-hold on
-grid on
-plot(t,dig)
-plot(t,anlg)
-plot(t, dig_er)
-plot(t, sig-anlg)
-legend('сигнал','цифра','аналог','ошибка-цифра','ошибка-аналог')
+pltout(out)
 
 %% 5 T0=Tu запаздывание
 t_final = 2;
@@ -86,24 +55,10 @@ Tu = T1;
 T0 = T1;
 Kia = 1/(2*Tu*K1);
 Ki = Kia*T0;
+
 sim i_isled_zap
 
-t = y(:, 1);
-sig = y(:,2);
-dig = y(:,3);
-anlg = y(:,4);
-dig_er = y(:,5);
-
-figure
-
-plot(t,sig)
-hold on
-grid on
-plot(t,dig)
-plot(t,anlg)
-plot(t, dig_er)
-plot(t, sig-anlg)
-legend('сигнал','цифра','аналог','ошибка-цифра','ошибка-аналог')
+pltout(out)
 
 %% 5 T0=Tu запаздывание
 t_final = 2;
@@ -111,25 +66,22 @@ T0 = T1;
 Tu = T1+T0/2;
 Kia = 1/(2*Tu*K1);
 Ki = Kia*T0;
+
 sim i_isled_zap
 
-t = y(:, 1);
-sig = y(:,2);
-dig = y(:,3);
-anlg = y(:,4);
-dig_er = y(:,5);
-
-figure
-
-plot(t,sig)
-hold on
-grid on
-plot(t,dig)
-plot(t,anlg)
-plot(t, dig_er)
-plot(t, sig-anlg)
-legend('сигнал','цифра','аналог','ошибка-цифра','ошибка-аналог')
+pltout(out)
 
 
 
-
+%% Функции
+function pltout(output)
+    figure
+    plot(output.time,[output.signals.values, output.signals.values(:,1) - output.signals.values(:,3)]);
+    grid on
+    legend('Входной сигнал',...
+           'Цифровой сигнал',...
+           'Аналоговый сигнал',...
+           'Ошибка цифровая',...
+           'Ошибка аналоговая',...
+           'Location', 'best')
+end

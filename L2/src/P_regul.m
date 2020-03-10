@@ -8,6 +8,7 @@ clc
 close all
 
 img_path = 'img\'; % путь куда сохранять картинки
+data_file = 'data.txt';
 
 if ~exist(img_path, 'dir')
     mkdir(img_path)
@@ -35,6 +36,10 @@ print(fig, [img_path 'p_regul-1'], '-dpng', '-r300')
 K1 = 1 + .1*(2*rand()-1); 
 K2 = 2 + .1*(2*rand()-1);
 T1 = 1 + .1*(2*rand()-1);
+f = fopen(data_file, 'w+');
+fprintf(f, '%4.3f %4.3f %4.3f\n', [K1;K2;T1]);
+fprintf('K1 = %4.3f\nK2 = %4.3f\ngit T1 = %4.3f\n', [K1;K2;T1]);
+fclose(f);
 
 %% 2. случай T0 <= 0.1Tu
 t_final = 20;

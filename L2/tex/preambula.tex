@@ -1,22 +1,35 @@
 \documentclass[a4paper, 12pt]{article}
 
 \usepackage{cmap}
-\usepackage{geometry}
 \usepackage[T2A]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage[english, russian]{babel}
 
+% Для математики
 \usepackage{amsmath}
+
+% Для картинок
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{wrapfig}
 \usepackage[caption=false]{subfig}
 
+% Оформление документа
+\usepackage{indentfirst}
+\usepackage{geometry}
 \geometry{right=20mm}
 \geometry{left=20mm}
 \geometry{top=20mm}
 \geometry{bottom=20mm}
 
-\usepackage{indentfirst}
-
+% Пути до файлов
 \graphicspath{{../src/img/}}
+
+% Вставки кода
+\usepackage{pythontex}
+\pyc{data_file = '../src/data.txt'} % Путь до файла с дано
+\begin{pycode}
+with open(data_file, 'r') as data:
+    K1, K2, T1 = data.readline().split()
+print(f'$K_1={K1}$', f'$K_2={K2}$', f'$T_1={T1}$', sep=r'\\')
+\end{pycode}

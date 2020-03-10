@@ -1,0 +1,79 @@
+\include{preambula}
+
+\begin{document}
+    \include{title_page}
+
+
+    \section{Цель работы}
+    \begin{enumerate}
+        \item Исследовать принцип работы цифрового П-регулятора
+        \item Исследовать переходный процесс при периоде дискретезации $T_0\leq0.1T_\mu$
+        \item Исследовать переходный процесс при периоде дискретезации $T_0=T_1$
+        \item Исследовать влияние запаздывания на переходный процесс
+        \item Компенсировать запаздывание системы
+    \end{enumerate}
+
+
+    \section{Дано}
+    \begin{figure}[H]
+        \centering\includegraphics{model-digital_example}
+        \caption{Система исследования цифрового П-регулятора}
+    \end{figure}
+    \begin{figure}[H]
+        \centering\includegraphics[width=\linewidth, height=\textheight, keepaspectratio]{model-p_isled}
+        \caption{Система исследования переходных процессов}
+    \end{figure}
+    \begin{figure}[H]
+        \centering\includegraphics[width=\linewidth, height=\textheight, keepaspectratio]{model-p_isled_zap}
+        \caption{Система исследования запаздывания}
+    \end{figure}
+
+    \begin{center}
+        \noindent\pys{$K_1=!{K1},\,K_2=!{K2},\,T_1=!{T1}$}\\
+    \end{center}
+
+
+    \section{Выполнение работы}
+
+    \subsection{Исследование цифрового П-регулятора}
+    \begin{figure}[H]
+        \centering\includegraphics{p_regul-1}
+        \caption{Сравнение аналогового и цифрового П-регулятора}
+    \end{figure}
+
+    \subsection{Вывод П-регулятора}
+    Допустим производится настройка системы на технический оптимум.\\
+    $W_{\mbox{оу}}(s)=\dfrac{K_1K_2}{s(T_1s+1)}$ --- передаточная функция объекта управления\\
+    $W_{\mbox{рс}}(s)=\dfrac{1}{2T_\mu s(T_\mu s+1)}$ --- передаточная функция разомкнутой системы.\\
+
+    \noindentПримем $T_1=T_\mu$, тогда передаточная функция регулятора
+    \[
+        W_{\mbox{рег}}(s)=\dfrac{W_{\mbox{рс}}(s)}{W_{\mbox{оу}}(s)}=
+        \dfrac{\cfrac{1}{2T_\mu s(T_\mu s+1)}}{\cfrac{K_1 K_2}{s(T_\mu s+1)}}=
+        \dfrac{1}{2T_\mu K_1 K_2}
+    \]
+
+    \subsection{Случай $T_0 \leq 0.1T_\mu$}
+    \begin{figure}[H]
+        \centering\includegraphics{p_regul-2}
+        \caption{Сравнение аналогового и цифрового П-регулятора}
+    \end{figure}
+
+    \subsection{Случай $T_0 = T_1$}
+    \begin{figure}[H]
+        \centering\includegraphics{p_regul-3}
+        \caption{Сравнение аналогового и цифрового П-регулятора}
+    \end{figure}
+
+    \subsection{Запаздывание аналогового сигнала}
+    \begin{figure}[H]
+        \centering\includegraphics{p_regul-4}
+        \caption{Сравнение аналогового и цифрового П-регулятора}
+    \end{figure}
+
+    \subsection{Компенсация запаздывания}
+    \begin{figure}[H]
+        \centering\includegraphics{p_regul-5}
+        \caption{Сравнение аналогового и цифрового П-регулятора}
+    \end{figure}
+\end{document}

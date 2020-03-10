@@ -7,6 +7,12 @@ clear
 clc
 close all
 
+img_path = 'img\'; % путь куда сохранять картинки
+
+if ~exist(img_path, 'dir')
+    mkdir(img_path)
+end
+
 %% 1.1 Исследование цифрового регулятора
 Kpa = 0.5;
 Kp = 1;
@@ -14,12 +20,15 @@ T0 = 0.1;
 Q1 = 10/(2^12);
 Q2 = 10/(2^12);
 
-sim digital_example
+model_name = 'digital_example';
+sim(model_name)
+print(['-s', model_name], [img_path model_name '.png'], '-dpng', '-r300')
 
-figure
+fig = figure;
 plot(out.time,[out.signals.values])
 grid on
 legend('Цифровой', 'Аналоговый', 'Location', 'best')
+print(fig, [img_path 'p_regul-1'], '-dpng', '-r300')
 
 %% 1.2 Применение метода "Переоборудования"
 % Настройка на ТО
@@ -34,9 +43,12 @@ T0 = 0.1;
 Kpa = 1/(2*Tu*K1*K2);
 Kp = Kpa;
 
-sim p_isled
+model_name = 'p_isled';
+sim(model_name)
+print(['-s', model_name], '-dpng', [img_path, model_name,'.png'], '-r300')
 
-pltout(out)
+fig = pltout(out);
+print(fig, [img_path 'p_regul-2'], '-dpng', '-r300')
 
 %% 3. случай T1 == Tu
 t_final = 20;
@@ -46,9 +58,10 @@ Tu = T1;
 Kpa = 1/(2*Tu*K1*K2);
 Kp = Kpa;
 
-sim p_isled
+sim(model_name)
 
-pltout(out)
+fig = pltout(out);
+print(fig, [img_path 'p_regul-3'], '-dpng', '-r300')
 
 %% 4. западывание аналогого сигнала
 t_final = 20;
@@ -58,9 +71,12 @@ Tu = T1;
 Kpa = 1/(2*Tu*K1*K2);
 Kp = Kpa;
 
-sim p_isled_zap
+model_name = 'p_isled_zap';
+sim(model_name)
+print(['-s', model_name], '-dpng', [img_path, model_name,'.png'], '-r300')
 
-pltout(out)
+fig = pltout(out);
+print(fig, [img_path 'p_regul-4'], '-dpng', '-r300')
 
 %% 5. запаздывание как апериодическое звено
 t_final =20;
@@ -70,13 +86,14 @@ Tu = T1 + 0.5*T0;
 Kpa = 1/(2*Tu*K1*K2);
 Kp = 1/(2*Tu*K1*K2);
 
-sim p_isled_zap
+sim(model_name)
 
-pltout(out)
+fig = pltout(out);
+print(fig, [img_path 'p_regul-5'], '-dpng', '-r300')
 
 %% Функции
-function pltout(output)
-    figure
+function h = pltout(output)
+    h = figure;
     plot(output.time,[output.signals.values, output.signals.values(:,1) - output.signals.values(:,3)]);
     grid on
     legend('Входной сигнал',...
@@ -85,6 +102,7 @@ function pltout(output)
            'Ошибка цифровая',...
            'Ошибка аналоговая',...
            'Location', 'best')
+    
 end
 
 

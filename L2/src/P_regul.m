@@ -23,7 +23,7 @@ Q2 = 10/(2^12);
 
 model_name = 'digital_example';
 sim(model_name)
-print(['-s', model_name], [img_path model_name '.png'], '-dpng', '-r300')
+print(['-s', model_name], [img_path 'model-' model_name '.png'], '-dpng', '-r300')
 
 fig = figure;
 plot(out.time,[out.signals.values])
@@ -50,12 +50,12 @@ Kp = Kpa;
 
 model_name = 'p_isled';
 sim(model_name)
-print(['-s', model_name], '-dpng', [img_path, model_name,'.png'], '-r300')
+print(['-s', model_name], '-dpng', [img_path,'model-', model_name,'.png'], '-r300')
 
 fig = pltout(out);
 print(fig, [img_path 'p_regul-2'], '-dpng', '-r300')
 
-%% 3. случай T1 == Tu
+%% 3. случай T0 == T1 == Tu
 t_final = 20;
 T0 = 1;
 T1 = T0;
@@ -78,7 +78,7 @@ Kp = Kpa;
 
 model_name = 'p_isled_zap';
 sim(model_name)
-print(['-s', model_name], '-dpng', [img_path, model_name,'.png'], '-r300')
+print(['-s', model_name], '-dpng', [img_path,'model-', model_name,'.png'], '-r300')
 
 fig = pltout(out);
 print(fig, [img_path 'p_regul-4'], '-dpng', '-r300')

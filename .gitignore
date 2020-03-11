@@ -8,3 +8,4 @@ slprj/
 *.slxc
 exclude/
 .*/
+*.txt

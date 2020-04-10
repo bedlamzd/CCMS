@@ -9,3 +9,6 @@ slprj/
 exclude/
 .*/
 *.txt
+pythontex*/
+*.pytxcode
+*.autosave

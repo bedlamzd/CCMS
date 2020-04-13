@@ -7,8 +7,8 @@ clear
 clc
 close all
 
-img_path = 'img\'; % путь куда сохранять картинки
-data_file = 'data.txt';
+img_path = '.\..\img\'; % путь куда сохранять картинки
+data_file = '.\..\data.txt';
 
 if ~exist(img_path, 'dir')
     mkdir(img_path)

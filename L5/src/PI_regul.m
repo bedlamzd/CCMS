@@ -1,15 +1,17 @@
 %{
     Лабораторная №4
     Анализ и моделирование систем с цифровым ПД-регулятором
-%}
 
+    Борисов М.
+    R3425
+%}
 
 clear
 clc
 close all
 
-img_path = 'img\'; % путь куда сохранять картинки
-data_file = 'data.txt';
+img_path = '.\..\img\'; % путь куда сохранять картинки
+data_file = '.\..\data.txt';
 
 if ~exist(img_path, 'dir')
     mkdir(img_path)

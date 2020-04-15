@@ -23,11 +23,11 @@
 \geometry{bottom=20mm}
 
 % Пути до файлов
-\graphicspath{{../src/img/}}
+\graphicspath{{../img/}}
 
 % Вставки кода
 \usepackage[gobble=auto]{pythontex}
-\pyc{data_file = '../src/data.txt'} % Путь до файла с дано
+\pyc{data_file = '../data.txt'} % Путь до файла с дано
 \begin{pycode}
 	with open(data_file, 'r') as data:
 	    K1, T1 = data.readline().split()

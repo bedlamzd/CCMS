@@ -1,0 +1,32 @@
+\documentclass[a4paper, 12pt]{article}
+
+% Essential settings
+\usepackage{cmap}
+\usepackage{geometry}
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, russian]{babel}
+
+% Math, figures and stuff
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage[labelsep=endash]{caption}
+\usepackage{minted}
+
+% Document appearence
+\usepackage{indentfirst}
+
+\geometry{right=20mm}
+\geometry{left=20mm}
+\geometry{top=20mm}
+\geometry{bottom=20mm}
+
+% Code
+\usepackage[gobble=auto]{pythontex}
+
+% Listing environment
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\renewcommand{\listingscaption}{Листинг}
